@@ -3,6 +3,7 @@
   "short_name": "ثامری",
   "description": "سیستم مدیریت حضور و غیاب و پیشرفت پروژه کابل کشی",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0b3d91",
   "theme_color": "#0b3d91",
