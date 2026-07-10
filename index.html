@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>سیستم حضور و غیاب پرسنل</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h2>سیستم حضور و غیاب پرسنل کابل کش ها</h2>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h3>ثبت پرسنل</h3>
+
+<label>تاریخ</label>
+
+<input type="text" id="workDate" placeholder="تاریخ را انتخاب کنید">
+
+<input
+type="text"
+id="code"
+placeholder="کد پرسنلی">
+
+<input
+type="text"
+id="name"
+placeholder="نام پرسنل">
+
+<input
+type="text"
+id="job"
+placeholder="سمت">
+
+<input
+type="text"
+id="phone"
+placeholder="شماره تماس">
+
+<button id="addBtn">
+➕ افزودن پرسنل
+</button>
+
+<button id="exportBtn">
+📄 خروجی CSV
+
+<button id="driverReportBtn">گزارش رانندگان</button>
+
+<button id="monthlyReportBtn">گزارش ماهانه</button>
+
+<button id="pdfReportBtn">📄 خروجی PDF</button>
+
+<button id="backupBtn">💾 پشتیبان</button>
+
+<button id="restoreBtn">📂 بازیابی</button>
+
+<button id="imageReportBtn">🖼️ خروجی تصویر</button>
+
+<input type="file" id="restoreFile" accept=".json" style="display:none;">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 جستجو">
+
+</div>
+
+<div class="card">
+
+<h3>لیست پرسنل</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ردیف</th>
+
+<th>کد</th>
+
+<th>نام</th>
+
+<th>سمت</th>
+
+<th>تلفن</th>
+
+<th>وضعیت</th>
+
+<th>راننده</th>
+
+<th>کارکرد</th>
+
+<th>عملیات</th>
+
+</tr>
+
+</thead>
+
+<tbody id="employees">
+
+</tbody>
+
+</table>
+
+<hr>
+
+<h2>📈 ثبت پیشرفت روزانه پروژه</h2>
+
+<table border="1" style="width:100%;text-align:center;border-collapse:collapse;">
+
+<tr>
+
+<th>فعالیت</th>
+
+<th>متراژ امروز</th>
+
+</tr>
+
+<tr>
+
+<td>ابزار دقیق Main</td>
+
+<td><input type="number" id="mainMeter" value="0"></td>
+
+</tr>
+
+<tr>
+
+<td>ابزار دقیق Secondary</td>
+
+<td><input type="number" id="secondaryMeter" value="0"></td>
+
+</tr>
+
+<tr>
+
+<td>برق Power</td>
+
+<td><input type="number" id="powerMeter" value="0"></td>
+
+</tr>
+
+<tr>
+
+<td>روشنایی</td>
+
+<td><input type="number" id="lightingMeter" value="0"></td>
+
+</tr>
+
+<tr>
+
+<td>مخابرات PJB</td>
+
+<td><input type="number" id="pjbMeter" value="0"></td>
+
+</tr>
+
+</table>
+
+<br>
+
+<button id="saveProgressBtn">
+
+💾 ذخیره پیشرفت روزانه
+
+</button>
+
+<button id="monthlyMeterBtn">
+📊 گزارش متراژ ماه
+</button>
+
+</div>
+
+<div class="card stats">
+
+<h3>گزارش روز</h3>
+
+<p>👥 تعداد پرسنل : <span id="total">0</span></p>
+
+<p>✅ حاضر : <span id="present">0</span></p>
+
+<p>❌ غایب : <span id="absent">0</span></p>
+
+<p>🏖 مرخصی : <span id="leave">0</span></p>
+
+<p>🚗 مأموریت : <span id="mission">0</span></p>
+
+<p>📅 مجموع کارکرد امروز: <span id="totalWork">0</span></p>
+
+</div>
+
+</div>
+
+<div id="reportArea"
+style="
+display:none;
+width:794px;
+min-height:1123px;
+background:white;
+padding:30px;
+margin:auto;
+direction:rtl;
+font-family:tahoma;
+color:#000;
+">
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-date@1.1.0/dist/persian-date.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
