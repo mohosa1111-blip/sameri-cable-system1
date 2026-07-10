@@ -928,51 +928,51 @@ $("#workDate").persianDatepicker({
 
 function monthlyMeters(){
 
-    if(workDate.value=="") return;
+    if(workDate.value==""){
+        alert("ابتدا تاریخ را انتخاب کنید");
+        return;
+    }
 
-    let selectedMonth = workDate.value.substring(0,7);
+    let selectedMonth = toEnglishDigits(workDate.value).split("/").slice(0,2).join("/");
 
-    let main=0;
-    let secondary=0;
-    let power=0;
-    let lighting=0;
-    let pjb=0;
+    let main = 0;
+    let secondary = 0;
+    let power = 0;
+    let lighting = 0;
+    let pjb = 0;
 
     for(let date in progress){
 
-        if(date.substring(0,7)!=selectedMonth) continue;
+        let month = toEnglishDigits(date).split("/").slice(0,2).join("/");
 
-        main += progress[date].main || 0;
-        secondary += progress[date].secondary || 0;
-        power += progress[date].power || 0;
-        lighting += progress[date].lighting || 0;
-        pjb += progress[date].pjb || 0;
+        if(month !== selectedMonth) continue;
+
+        main += Number(progress[date].main || 0);
+        secondary += Number(progress[date].secondary || 0);
+        power += Number(progress[date].power || 0);
+        lighting += Number(progress[date].lighting || 0);
+        pjb += Number(progress[date].pjb || 0);
 
     }
 
-    let total =
-    main+
-    secondary+
-    power+
-    lighting+
-    pjb;
+    let total = main + secondary + power + lighting + pjb;
 
     alert(
 `گزارش متراژ ماه
 
-Main : ${main} متر
+ابزار دقیق Main : ${main} متر
 
-Secondary : ${secondary} متر
+ابزار دقیق Secondary : ${secondary} متر
 
-Power : ${power} متر
+برق Power : ${power} متر
 
-Lighting : ${lighting} متر
+روشنایی : ${lighting} متر
 
-PJB : ${pjb} متر
+مخابرات PJB : ${pjb} متر
 
---------------------
+-------------------------
 
-جمع کل : ${total} متر`
+جمع کل ماه : ${total} متر`
     );
 
 }
